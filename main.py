@@ -1,5 +1,8 @@
 #Fazer tela inicial
-
+print("------------------------------")
+print(" CADASTRO DE NOTAS DE ALUNOS  ")
+print("------------------------------")
+print()
 
 quantidadeAlunos = int(input("\nDigite a quantidade de alunos para cadastrar: "))
 cadastro = []
