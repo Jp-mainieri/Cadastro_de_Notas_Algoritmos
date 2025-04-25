@@ -1,9 +1,7 @@
-#Fazer tela inicial
 print("------------------------------")
 print(" CADASTRO DE NOTAS DE ALUNOS  ")
 print("------------------------------")
 print()
-
 quantidadeAlunos = int(input("\nDigite a quantidade de alunos para cadastrar: "))
 cadastro = []
 
@@ -52,7 +50,7 @@ for i in range(quantidadeAlunos):
 
 
     cadastro.append(boletim)
-#MENU
+
 continuar = True
 while continuar == True:
     
