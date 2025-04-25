@@ -1,4 +1,7 @@
-quantidadeAlunos = int(input("\nDigite a quantidade de alunos: "))
+#Fazer tela inicial
+
+
+quantidadeAlunos = int(input("\nDigite a quantidade de alunos para cadastrar: "))
 cadastro = []
 
 maiorMediaFinal = 0
@@ -66,28 +69,49 @@ while continuar == True:
         print("Escolha inválida")
         menu = int(input("Escolha uma das opções: "))
 
+    print()
+
     if menu == 1:
         print("Boletins:")
+        print()
+        for x in cadastro:
+            print("\nNome: ", x[0])
+            print("Notas das provas teóricas: ", x[1])
+            print("Notas dos projetos: ", x[2])
+            print("Médias: ", x[3])
+            print("Média Final: ", x[4])
+
     elif menu == 2:
 
         print("Pesquisar pelo nome:")
         pesquisarNome = input("Nome: ")
+        print()
         for i in range(quantidadeAlunos):
             if cadastro[i][0] == pesquisarNome:
-                print(cadastro[i])
+                print("Notas das provas teóricas: ", cadastro[i][1])
+                print("Notas dos projetos: ", cadastro[i][2])
+                print("Médias: ", cadastro[i][3])
+                print("Média Final: ", cadastro[i][4])
                 break
 
     elif menu == 3:
-        print("Maior média final:")
+
+        print("Maior média final:",end="")
         print(maiorMediaFinal)
+
     elif menu == 4:
-        print("Menor média final:")
+
+        print("Menor média final:",end="")
         print(menorMediaFinal)
+        
     else:
-        print("Percentual de aprovados:")
+
+        print("Percentual de aprovados:",end="")
         print((numeroAprovados / quantidadeAlunos)*100,"%")
     
-    if input("Quer continuar? (s/n)") == "s":
+    print()
+
+    if input("Quer continuar? (s/n): ") == "s":
         continuar = True
     else:
         continuar = False
