@@ -17,9 +17,9 @@ for i in range(quantidadeAlunos):
     notaProjetoP = []
 
     for a in range(2):
-        notaProvaT.append(float(input(f"Nota da prova teórica {a+1} do aluno {i+1}: ")))
+        notaProvaT.append(float(input(f"Nota da prova teórica {a+1} do aluno(a) {nomeAluno}: ")))
     for a in range(2):
-        notaProjetoP.append(float(input(f"Nota do projeto {a+1} do aluno {i+1}: ")))
+        notaProjetoP.append(float(input(f"Nota do projeto {a+1} do aluno(a) {nomeAluno}: ")))
 
     media = []
     media.append(0.4 * notaProvaT[0] + 0.6 * notaProvaT[1])
@@ -58,7 +58,7 @@ while continuar == True:
     print("             MENU             ")
     print("------------------------------")
     print("1- Boletins")
-    print("2- Pesquisar pelo nome")
+    print("2- Pesquisar boletim pelo nome")
     print("3- Maior média final")
     print("4- Menor média final")
     print("5- Percentual de aprovados")
@@ -66,7 +66,7 @@ while continuar == True:
 
     menu = int(input("Escolha uma das opções: "))
 
-    while 1 > menu or 5 < menu:
+    while menu < 1 or menu > 5:
         print("Escolha inválida")
         menu = int(input("Escolha uma das opções: "))
 
@@ -77,23 +77,36 @@ while continuar == True:
         print()
         for x in cadastro:
             print("\nNome: ", x[0])
-            print("Notas das provas teóricas: ", x[1])
-            print("Notas dos projetos: ", x[2])
-            print("Médias: ", x[3])
+            print("Nota da prova teórica 1: ", x[1][0])
+            print("Nota da prova teórica 1: ", x[1][1])
+            print("Nota do projeto 1: ", x[2][0])
+            print("Nota do projeto 2: ", x[2][1])
+            print("Média das provas teóricas: ", x[3][0])
+            print("Média dos projetos: ", x[3][1])
             print("Média Final: ", x[4])
 
     elif menu == 2:
 
-        print("Pesquisar pelo nome:")
+        print("Pesquisar boletim pelo nome:")
         pesquisarNome = input("Nome: ")
         print()
-        for i in range(quantidadeAlunos):
-            if cadastro[i][0] == pesquisarNome:
-                print("Notas das provas teóricas: ", cadastro[i][1])
-                print("Notas dos projetos: ", cadastro[i][2])
-                print("Médias: ", cadastro[i][3])
-                print("Média Final: ", cadastro[i][4])
-                break
+        pesquisando = True
+        while pesquisando == True:
+            for x in range(quantidadeAlunos):
+                if cadastro[x][0] == pesquisarNome:
+                    print("Nota da prova teórica 1: ", cadastro[x][1][0])
+                    print("Nota da prova teórica 1: ", cadastro[x][1][1])
+                    print("Nota do projeto 1: ", cadastro[x][2][0])
+                    print("Nota do projeto 2: ", cadastro[x][2][1])
+                    print("Média das provas teóricas: ", cadastro[x][3][0])
+                    print("Média dos projetos: ", cadastro[x][3][1])
+                    print("Média Final: ", cadastro[x][4])
+                    pesquisando = False
+                    break
+                elif i == quantidadeAlunos-1:
+                    print("Nome inválido, insira um nome cadastrado")
+                    pesquisarNome = input("Nome: ")
+                    pesquisando = True
 
     elif menu == 3:
 
@@ -112,7 +125,7 @@ while continuar == True:
     
     print()
 
-    if input("Quer continuar? (s/n): ") == "s":
+    if input("Quer continuar no sistema? (s/n): ") == "s":
         continuar = True
     else:
         continuar = False
